@@ -1,0 +1,149 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Portfolio</title>
+  <style>
+    /* General Body Styles */
+    body {
+      margin: 0;
+      font-family: 'Orbitron', sans-serif;
+      background: linear-gradient(135deg, #000000, #000033);
+      color: #e0e0e0;
+      overflow-x: hidden;
+      scroll-behavior: smooth;
+    }
+    h1, h2 {
+      color: #00f7ff;
+      text-transform: uppercase;
+      letter-spacing: 4px;
+      text-shadow: 0 0 20px #00f7ff, 0 0 30px #ff003c;
+      font-size: 2.5rem;
+    }
+    header {
+      background: rgba(0, 0, 0, 0.8);
+      padding: 15px 0;
+      position: fixed;
+      width: 100%;
+      z-index: 1000;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      box-shadow: 0 4px 20px rgba(255, 0, 0, 0.4);
+    }
+    header nav {
+      display: flex;
+      gap: 15px;
+    }
+    header nav a {
+      font-size: 1.1rem;
+      color: #ffffff;
+      padding: 8px 16px;
+      background: #003366;
+      border-radius: 5px;
+      transition: transform 0.3s, background 0.3s, box-shadow 0.3s;
+    }
+    header nav a:hover {
+      background: #ff003c;
+      color: #ffffff;
+      transform: scale(1.1);
+      box-shadow: 0 0 15px #ff003c, 0 0 25px #00f7ff;
+    }
+ header nav a:icon {
+      background: #ff003c;
+      color: #ffffff;
+      transform: scale(1.1);
+      box-shadow: 0 0 15px #ff003c, 0 0 25px #00f7ff;
+}
+    .panel {
+      padding: 100px 20px;
+      margin: 150px 20px;
+      background: rgba(0, 0, 0, 0.7);
+      border-radius: 15px;
+      box-shadow: 0 10px 30px rgba(0, 0, 255, 0.3);
+      animation: fadeIn 2s ease-in-out;
+    }
+    footer {
+      background: rgba(0, 0, 0, 0.9);
+      padding: 20px;
+      text-align: center;
+      color: #e0e0e0;
+      position: relative;
+      bottom: 0;
+      width: 100%;
+    }
+    footer p {
+      font-size: 1.2rem;
+    }
+    footer a {
+      color: #00f7ff;
+      text-decoration: none;
+      transition: color 0.3s, transform 0.3s;
+    }
+    footer a:hover {
+      color: #ff003c;
+      transform: scale(1.1);
+    }
+    @keyframes fadeIn {
+      from {
+        opacity: 0;
+      }
+      to {
+        opacity: 1;
+      }
+    }
+  </style>
+</head>
+<body>
+  <!-- Header Section -->
+  <header>
+    <div class="logo">
+     <h1>ALL NOOR</h1>
+    </div>
+  </header>
+  <!-- Main Section -->
+  <main>
+    <div class="panel" id="about-panel">
+      <section id="Information">
+        <h1>Information</h1>
+        <h3>Why Choose AL NOOR?</h3>  
+        <ul>
+          <li><strong>Experienced Tutors:</strong> Our team consists of highly qualified and passionate educators.</li>
+          <li><strong>Customized Learning Plans:</strong> Tailored teaching methods for individual student needs.</li>
+          <li><strong>Comprehensive Curriculum:</strong> Covering Mathematics, Science, English, and more.</li>
+          <li><strong>Interactive Learning Environment:</strong> Supportive and engaging for students.</li>
+          <li><strong>Regular Assessments:</strong> Weekly tests and progress tracking for consistent improvement.</li>
+        </ul>
+        <h3>Our Mission</h3>
+        <p>To illuminate the path to success through quality education and unwavering support, guiding students toward academic and personal growth.</p>
+        <h3>Our Vision</h3>
+        <p>To be a beacon of knowledge and inspiration, shaping the leaders of tomorrow.</p>
+        <h3>Join Us Today!</h3>
+        <p>Empower your academic journey with <strong>AL NOOR Tuition Center</strong>. Together, we'll unlock your potential and achieve excellence!</p>          
+      </section>
+    </div>
+    <div class="panel" id="projects-panel">
+      <section id="about">
+        <h2>About</h2>
+        <ul>
+          <li><a href="Assistant Ai.html">Assistant Ai</a></li>
+          <li><a href="Gallery.html">Images</a></li>
+        </ul>
+      </section>
+    </div>
+  </main>
+  <!-- Footer Section -->
+  <footer>
+    <p>© 2024 AL NOOR</p>
+  </footer>
+  <script>
+    // Add interactivity if needed, e.g., form validation or smooth scrolling
+    document.getElementById('contact-form')?.addEventListener('submit', function(event) {
+      event.preventDefault();
+      alert('Thank you for reaching out! I will get back to you soon.');
+    });
+  </script>
+</body>
+</html>

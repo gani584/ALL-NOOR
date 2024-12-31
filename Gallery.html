@@ -1,0 +1,133 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gallery</title>
+    <style>
+    
+/* Gallery Section */
+#gallery {
+    padding: 100px 20px;
+    text-align: center;
+}
+
+#gallery h2 {
+    font-size: 2.5rem;
+    color: #ff003c; /* Red */
+    text-transform: uppercase;
+    letter-spacing: 4px;
+    text-shadow: 0 0 15px #00f7ff, 0 0 25px #ff003c;
+    margin-bottom: 50px;
+}
+
+/* Gallery Circular Layout */
+.gallery-container {
+    display: grid;
+    gap: 40px;
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+    justify-items: center;
+}
+
+/* Circular Gallery Items */
+.gallery-item {
+    position: relative;
+    width: 200px;
+    height: 200px;
+    border-radius: 50%;
+    overflow: hidden;
+    background: rgba(0, 0, 0, 0.8); /* Dark circular background */
+    box-shadow: 0 10px 30px rgba(0, 0, 255, 0.5); /* Blue glow shadow */
+    transition: transform 0.3s, box-shadow 0.3s;
+    animation: spin 10s linear infinite;
+}
+
+.gallery-item img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 50%;
+    transition: transform 0.3s, filter 0.3s;
+}
+
+/* Hover Effects for Circular Items */
+.gallery-item:hover {
+    transform: scale(1.1);
+    box-shadow: 0 15px 40px rgba(255, 0, 0, 0.6); /* Red glow shadow */
+}
+
+.gallery-item:hover img {
+    transform: scale(1.2);
+    filter: brightness(1.2);
+}
+
+/* Circular Glow Animation */
+.gallery-item::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    border: 2px solid rgba(0, 255, 255, 0.4); /* Blue glowing border */
+    animation: pulse 2s infinite;
+    z-index: 1;
+}
+
+/* Circular Hover Ripple Effect */
+.gallery-item::after {
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    background: radial-gradient(circle, rgba(255, 0, 0, 0.2), rgba(0, 0, 0, 0));
+    opacity: 0;
+    transition: opacity 0.3s;
+    z-index: 0;
+}
+
+.gallery-item:hover::after {
+    opacity: 1;
+}
+
+/* Animations */
+@keyframes pulse {
+    0%, 100% {
+        transform: scale(1);
+        opacity: 1;
+    }
+    50% {
+        transform: scale(1.1);
+        opacity: 0.6;
+    }
+}
+
+@keyframes spin {
+    from {
+        transform: rotate(0deg);
+    }
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+    </style>
+</head>
+<body style="background-color:powderblue;">
+    <div class="panel" id="gallery-panel">
+        <section id="gallery">
+            <h2>Gallery</h2>
+            <div class="gallery-container">
+                <div class="gallery-item"><img src="images/ALL NOOR.jpeg" alt="Image 1"></div>
+                <div class="gallery-item"><img src="images/AI.jpeg" alt="Image 2"></div>
+                <div class="gallery-item"><img src="images/child.jpeg" alt="Image 3"></div>
+                <div class="gallery-item"><img src="images/childs.jpeg" alt="Image 4"></div>
+                <div class="gallery-item"><img src="images/children.jpeg" alt="Image 5"></div>
+            </div>
+        </section>
+    </div>
+</body>
+</html>

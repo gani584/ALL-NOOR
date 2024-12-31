@@ -1,0 +1,170 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>AI Assistant</title>
+  <style>
+  
+/* styles.css */
+
+/* General body styles */
+body {
+  margin: 0;
+  padding: 0;
+  font-family: 'Poppins', sans-serif;
+  background: #000000; /* Solid black background */
+  color: #ffffff;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+
+/* Main container */
+.assistant-container {
+  text-align: center;
+  background: linear-gradient(135deg, #003366, #000000); /* Blue and black gradient */
+  padding: 25px;
+  border: 3px solid #ff0000; /* Red border */
+  border-radius: 15px;
+  box-shadow: 0 8px 20px rgba(255, 0, 0, 0.6); /* Red glow */
+  width: 90%;
+  max-width: 450px;
+}
+
+/* Title styles */
+.assistant-container h1 {
+  font-size: 2.5rem;
+  color: #003366; /* Bold blue color */
+  margin-bottom: 20px;
+  text-shadow: 2px 2px 8px #ff0000; /* Red glow */
+}
+
+/* Display section */
+.assistant-display {
+  background: #1a1a1a; /* Darker black shade */
+  padding: 20px;
+  color: #ffffff;
+  border: 2px solid #003366; /* Blue border */
+  border-radius: 10px;
+  font-size: 1.2rem;
+  box-shadow: inset 0 3px 7px rgba(0, 0, 0, 0.5);
+  margin-bottom: 20px;
+  min-height: 70px;
+  line-height: 1.6;
+}
+
+/* Input styles */
+.assistant-input {
+  width: 100%;
+  padding: 12px;
+  border: 2px solid #ff0000; /* Red border */
+  border-radius: 8px;
+  font-size: 1rem;
+  outline: none;
+  margin-bottom: 15px;
+  background: #000033; /* Dark blue background */
+  color: #ffffff;
+  transition: border-color 0.3s;
+}
+
+.assistant-input:focus {
+  border-color: #003366; /* Blue border on focus */
+}
+
+/* Button styles */
+.assistant-button {
+  width: 100%;
+  padding: 12px;
+  font-size: 1.1rem;
+  font-weight: bold;
+  border: 2px solid #ff0000; /* Red border */
+  background: #003366; /* Blue background */
+  color: #ffffff;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background 0.3s, color 0.3s;
+}
+
+.assistant-button:hover {
+  background: #ff0000; /* Red background on hover */
+  color: #000000; /* Black text */
+}
+
+  </style>
+</head>
+<body>
+  <div class="assistant-container">
+    <h1>AI Assistant</h1>
+    <div class="assistant-display" id="display">Ask me anything!</div>
+    <input
+      type="text"
+      id="user-input"
+      class="assistant-input"
+      placeholder="Type your question here..."
+    />
+    <button id="send-button" class="assistant-button">Send</button>
+  </div>
+  <script>
+  
+document.addEventListener("DOMContentLoaded", () => {
+  const display = document.getElementById("display");
+  const userInput = document.getElementById("user-input");
+  const sendButton = document.getElementById("send-button");
+
+  // Function to process user input
+  function processInput(input) {
+    const query = input.trim().toLowerCase();
+
+    // Predefined responses
+    const responses = {
+      "what is the time": () => {
+        const now = new Date();
+        return `The current time is ${now.toLocaleTimeString()}.`;
+      },
+      "what is the date": () => {
+        const today = new Date();
+        return `Today's date is ${today.toLocaleDateString()}.`;
+      },
+      "what is today": () => {
+        const days = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"];
+        const today = new Date();
+        return `Today is ${days[today.getDay()]}.`;
+      },
+    };
+
+    // Check if query matches predefined responses
+    for (let key in responses) {
+      if (query.includes(key)) {
+        return responses[key]();
+      }
+    }
+
+    // Redirect other queries to Google
+    window.open(`https://www.google.com/search?q=${encodeURIComponent(input)}`, "_blank");
+    return "Redirecting to Google for more information...";
+  }
+
+  // Handle user input
+  sendButton.addEventListener("click", () => {
+    const input = userInput.value;
+    if (input) {
+      const response = processInput(input);
+      display.textContent = response;
+      userInput.value = "";
+    }
+  });
+
+  // Trigger on Enter key press
+  userInput.addEventListener("keydown", (event) => {
+    if (event.key === "Enter") {
+      sendButton.click();
+    }
+  });
+});
+
+  </script>
+</body>
+</html>
